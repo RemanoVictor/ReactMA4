@@ -6,7 +6,7 @@ import App from "./App";
 import Home from "./pages/Home";
 import CardSpecific from "./pages/CardSpecific";
 import About from "./pages/About";
-// import Contact from "./pages/Contact";
+import Contact from "./pages/Contact";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
@@ -14,7 +14,7 @@ ReactDOM.render(
     <App>
       <Switch>
         <Route path="/" exact component={Home} />
-        {/* <Route path="/Contact" component={Contact} /> */}
+        <Route path="/Contact" component={Contact} />
         <Route path="/About" exact component={About} />
         <Route path="/CardSpecific/:id" exact component={CardSpecific} />
       </Switch>
