@@ -13,7 +13,6 @@ export default function RickAndMorty() {
   useEffect(() => {
     axios.get(RICK_API).then(rmData => {
       setrmcharacters(rmData.data.results);
-      console.log(rmData.data);
     });
   }, []);
 
@@ -57,7 +56,6 @@ export default function RickAndMorty() {
         <div className="row">
           {isResultsFiltered ? (
             <div>
-              <h1>Filtered Results for {searchPhrase}</h1>
               {filteredResults.length > 0 ? (
                 filteredResults.map((value, index) => {
                   return (
