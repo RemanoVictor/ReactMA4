@@ -9,6 +9,7 @@ export default function Contact() {
   const [numberError, setnumberError] = useState(true);
   const [emailError, setemailError] = useState(true);
   const [messageError, setmessageError] = useState(true);
+  const [name, setname] = useState("");
 
   function handleChange(input) {
     let name = input.target.name;
@@ -33,10 +34,11 @@ export default function Contact() {
         break;
       default:
     }
+    setname(value);
 
-    this.setState({
-      [name]: value
-    });
+    // this.setState({
+    //   [name]:value;
+    // });
   }
 
   function handleSubmit(event) {
@@ -68,7 +70,7 @@ export default function Contact() {
             <input
               type="number"
               name="number"
-              onChange={handleChange()}
+              onChange={handleChange}
               className="form-control"
             />
             <p className={numberError ? "error" : "error_hide"}>
@@ -79,7 +81,7 @@ export default function Contact() {
             <input
               type="text"
               name="email"
-              onChange={handleChange()}
+              onChange={handleChange}
               className="form-control"
             />
             <p className={emailError ? "error" : "error_hide"}>
@@ -90,7 +92,7 @@ export default function Contact() {
             <input
               type="text"
               name="message"
-              onChange={handleChange()}
+              onChange={handleChange}
               className="form-control"
             />
             <p className={messageError ? "error" : "error_hide"}>
