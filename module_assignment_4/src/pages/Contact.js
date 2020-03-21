@@ -1,10 +1,6 @@
 import React, { useState } from "react";
 
 export default function Contact() {
-  const [firstname, setfirstname] = useState("");
-  const [number, setnumber] = useState("");
-  const [email, setemail] = useState("");
-  const [message, setmessage] = useState("");
   const [firstnameError, setfirstnameError] = useState(true);
   const [numberError, setnumberError] = useState(true);
   const [emailError, setemailError] = useState(true);
@@ -35,17 +31,10 @@ export default function Contact() {
       default:
     }
     setname(value);
-
-    // this.setState({
-    //   [name]:value;
-    // });
   }
 
   function handleSubmit(event) {
-    // const { firstname } = this.state;
-    alert(
-      `Hey ${firstname}, Thanks for reaching out. We will get back to you ASAP!`
-    );
+    alert(`Hey, Thanks for reaching out. We will get back to you ASAP!`);
     event.preventDefault();
   }
 
