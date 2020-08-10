@@ -6,7 +6,6 @@ import { CardData } from "../redux/actions/cardData";
 
 export default function RickAndMorty() {
   const dispatch = useDispatch();
-  const [rmcharacters, setrmcharacters] = useState(undefined);
   const [filteredResults, setFilteredResults] = useState(undefined);
   const [searchPhrase, setsearchPhrase] = useState("");
   const [isResultsFiltered, setisResultsFiltered] = useState(false);
@@ -16,7 +15,6 @@ export default function RickAndMorty() {
   }, [dispatch]);
 
   const cardData = useSelector((state) => state.CardData.CardData);
-  console.log(cardData);
 
   function handleFiltering(input) {
     let filteredCards = cardData.filter((value) => {
@@ -79,8 +77,8 @@ export default function RickAndMorty() {
             </div>
           ) : (
             <>
-              {rmcharacters !== undefined ? (
-                rmcharacters.map((value, index) => {
+              {cardData !== undefined ? (
+                cardData.map((value, index) => {
                   return (
                     <Cards
                       key={index}
@@ -94,7 +92,7 @@ export default function RickAndMorty() {
                   );
                 })
               ) : (
-                <div></div>
+                <div> No data</div>
               )}
             </>
           )}
