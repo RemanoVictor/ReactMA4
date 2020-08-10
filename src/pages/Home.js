@@ -1,23 +1,25 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-import { RICK_API } from "../constants/constant";
 import Cards from "./../components/cards";
+import { CardData } from "../redux/actions/cardData";
 
 export default function RickAndMorty() {
+  const dispatch = useDispatch();
   const [rmcharacters, setrmcharacters] = useState(undefined);
   const [filteredResults, setFilteredResults] = useState(undefined);
   const [searchPhrase, setsearchPhrase] = useState("");
   const [isResultsFiltered, setisResultsFiltered] = useState(false);
 
   useEffect(() => {
-    axios.get(RICK_API).then(rmData => {
-      setrmcharacters(rmData.data.results);
-    });
-  }, []);
+    dispatch(CardData());
+  }, [dispatch]);
+
+  const cardData = useSelector((state) => state.CardData.CardData);
+  console.log(cardData);
 
   function handleFiltering(input) {
-    let filteredCards = rmcharacters.filter(value => {
+    let filteredCards = cardData.filter((value) => {
       return value.name
         .toLowerCase()
         .includes(input.target.value.toLowerCase());
@@ -26,6 +28,7 @@ export default function RickAndMorty() {
     setisResultsFiltered(true);
     setsearchPhrase(input.target.value);
   }
+
   return (
     <div>
       <div className="[ container-fluid ][ landingPage ]">

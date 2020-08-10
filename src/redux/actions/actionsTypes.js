@@ -1,0 +1,2 @@
+export const GET_CARD_DATA = "GET_CARD_DATA";
+export const GET_CARD_DATA_ERROR = "GET_CARD_DATA_ERROR";

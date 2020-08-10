@@ -11,10 +11,11 @@ export default function CardSpecific() {
   const [rmcharacters, setrmCharacters] = useState(undefined);
   let { id } = useParams();
   useEffect(() => {
-    axios.get(RICK_API + id).then(rmData => {
+    axios.get(RICK_API + id).then((rmData) => {
       setrmCharacters(rmData.data);
+      console.log(rmData.data);
     });
-  }, []);
+  }, [id]);
   return (
     <div className="container">
       <div className="row">

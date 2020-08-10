@@ -1,12 +1,13 @@
 import React from "react";
 
-const Cardspecific = props => {
+const Cardspecific = (props) => {
+  const [name, img, location, created] = props;
   return (
     <div className="[ col-sm-8 ] [ card ]">
-      <h3> Name: {props.name} </h3>
-      <img src={props.img} alt="just random" className="[ CardImg ]" />
-      <p> Location: {props.location} </p>
-      <p>Created: {props.created}</p>
+      <h3> Name: {name} </h3>
+      <img src={img} alt="just random" className="[ CardImg ]" />
+      <p> Location: {location} </p>
+      <p>Created: {created}</p>
     </div>
   );
 };
