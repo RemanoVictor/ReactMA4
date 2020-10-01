@@ -14,7 +14,8 @@ export default function RickAndMorty() {
     dispatch(CardData());
   }, [dispatch]);
 
-  const cardData = useSelector((state) => state.CardData.CardData);
+  const cardData = useSelector((state) => state.cardData.cardData);
+  console.log(cardData);
 
   function handleFiltering(input) {
     let filteredCards = cardData.filter((value) => {
