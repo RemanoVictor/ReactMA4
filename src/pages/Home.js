@@ -48,6 +48,7 @@ export default function RickAndMorty() {
                 name="username"
                 onChange={handleFiltering}
                 className="form-control"
+                placeholder={searchPhrase}
               />
               <br />
               <br />
